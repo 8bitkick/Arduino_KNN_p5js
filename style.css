@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; color: #000; background: #fff; font-size: medium;
+}
+
+.container {
+  width:100%;height:100%;margin-top:10px;margin-bottom:0px;
+}
+
+.top-bar {
+  background: #eee; height;160px;width:100%;
+  padding: 16px;
+  border-bottom: 1px solid #aaa;
+}
+
+#connectButton {
+  background-color: teal; border: none; color: white; padding: 4px; text-align: left;
+  text-decoration: none; font-size: 24px; margin:20px;height: 32px; width: 32px;
+  border-radius: 5%; outline:none;
+}
+
+#p5-sketch{
+  width: 100%;
+  height:500px;
+  background: #888888;
+}
+
+.label {
+  height: 19px;
+  display: inline;
+  font-size: 19px;
+}
+
+
+.console{
+  flex: 0 0 auto;position: relative;outline: none;overflow-y: scroll;height: 64px;display: flex;flex-direction: column;
+}
+
+pre {position: fixed;
+  bottom: 0; border-top: 1px solid #aaa;
+  width: 100%;color: #aaa;display: flex; font-size: 1em;
+  background: #eee;overflow-y: scroll;
+  flex-direction: column-reverse;padding: 8px;width:100%;
+  height: 64px;}
