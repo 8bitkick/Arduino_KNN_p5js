@@ -19,9 +19,9 @@ The p5.js sketch is designed to connect to Arduino Nano BLE sense and visualize 
 
 ## Arduino events - arduino serial out triggering JS functions
 
-This is the intial usage of arduino.js events library.
+This is the intial usage of arduino-events.js library.
 
-The library enables Arduino sketch serial input to trigger a javascript function call, allowing easy creation of javascript or p5.js web apps or visualizations for Arduino sketches while allowing the Arduino sketch output to remain human readable and usable with or without the web companion.
+This is a simple RPC library that enables Arduino sketch serial input to trigger a javascript function call, allowing easy creation of javascript or p5.js web apps or visualizations for Arduino sketches while allowing the Arduino sketch output to remain human readable and usable with or without the web companion.
 
 ### Set up event handlers 
 It is trivial to instance the library and associate serial messages with javascript functions to call.
