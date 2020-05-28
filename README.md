@@ -34,13 +34,8 @@ let arduino  = new ArduinoEvents([
  ~~~ 
 
 ### Connect to Arduino using web serial (chrome only)
-~~~
-let serial  = new WebSerial();
-arduino.parser = arduino.parser.bind(arduino);
-serial.setHandler(arduino.parser);
-~~~
 
-The user will need to press a button with `id='connectButton'` on the webpage in order to start a serial connection to the Arduino board.
+The user presses a button on the webpage to open the chrome serial dialog in order to start a serial connection to the Arduino board.
 
 ### Arduino Serial output now triggers JavaScript functions
 
