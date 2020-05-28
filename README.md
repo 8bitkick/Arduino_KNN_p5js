@@ -33,7 +33,7 @@ let arduino  = new ArduinoEvents([
 ]);
  ~~~ 
 
-### Connect to Arduino using web serial(chrome only)
+### Connect to Arduino using web serial (chrome only)
 ~~~
 let serial  = new WebSerial();
 arduino.parser = arduino.parser.bind(arduino);
