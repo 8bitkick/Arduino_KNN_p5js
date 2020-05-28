@@ -10,15 +10,20 @@ class ArduinoEvents {
     this.serial  = new WebSerial();
     this.parser = this.parser.bind(this);
     this.serial.setHandler(this.parser);
+    this.message = "";
+    this.dialog = document.getElementById('dialog');
+    this.dialog.show();
   }
 
-  parser(text){
+  parser(input){
+        this.dialog.close();
     // remove trailing and leading whitespace
-    text = text.trim();
+    let text = input.trim();
 
     serialMonitor.textContent += text + Array(40-text.length).join(" ")
 
     if (text=="") {return;}
+    this.message = text;
 
     let func = null; // function to call based on the Arduino serial output we see
     let theseParameters = []; // parameters we only use this time around
@@ -64,9 +69,16 @@ class WebSerial {
     this.handler = function (a) {console.log("Unhandled serial input: "+a)};
     // Set up the serial connect button
     this.button = document.getElementById('connectButton');
+        this.button2 = document.getElementById('connectButton2');
     this.connect = this.connect.bind(this);
     document.addEventListener('DOMContentLoaded', () => {
       this.button.addEventListener('click', this.connect);
+      if (!'serial' in navigator) {
+        alert('Web Serial not supported by this browser. Try using Chrome')
+      }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      this.button2.addEventListener('click', this.connect);
       if (!'serial' in navigator) {
         alert('Web Serial not supported by this browser. Try using Chrome')
       }
@@ -134,8 +146,8 @@ function test(func){
     return (line, i) => {
       setTimeout(() => {
         func(line);
-      }, i * 10);
+      }, i * 30);
     }
   };
-  testInput.forEach(delayLoop(func, 10));
+  testInput.forEach(delayLoop(func, 30));
 }

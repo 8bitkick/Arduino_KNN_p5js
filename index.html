@@ -10,19 +10,37 @@
 
 <body>
 	<div id="container">
-	<div id="top-bar">
-		<button id="connectButton">▶</button>
+		<div id="top-bar">
+			<button id="connectButton">▶</button>
+		</div>
+		<div id="p5-sketch"></div>
+		<div id="console">
+			<pre id="serialMonitor"></pre>
+		</div>
 	</div>
 
-<div id="p5-sketch"></div>
+	<dialog id="dialog">
+		<h1>Arduino Machine Learning</h1>
+		<hr>
+		<h2>k Nearest Neighbour example</h2>
+		<p> This page communicates with a Arduino Nano 33 BLE Sense board over USB.<p>
 
-<div id="console">
-	<pre id="serialMonitor">dd</pre>
-</div>
-</div>
-	<script src="arduino-events.js"></script>
-	<script src="sketch.js"></script>
+			<h3>Instructions</h3>
+			<ul>
+				<li> First upload sketch to your board using <a href="https://create.arduino.cc/editor/dpajak/f8815d3f-de9c-412f-8dda-f919efba70d3/preview" target="_NEW">Arduino Create</a></li>
+				<li> Press the white button on the board to reset it</li>
+				<li> Connect your browser to the board using the button below</li>
+			</ul>
+			<br>
+			<div>
+				<button id="connectButton2">Connect to Arduino</button>
+				<button id="cancel">Cancel</button>
+			</div>
+		</dialog>
 
-</body>
+		<script src="arduino-events.js"></script>
+		<script src="sketch.js"></script>
 
-</html>
+	</body>
+
+	</html>

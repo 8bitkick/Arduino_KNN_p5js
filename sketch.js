@@ -13,7 +13,10 @@ let arduino   = new ArduinoEvents([
   {message:"Let me guess your object",      handler: guessObject}
 ]);
 
-test(arduino.parser);
+if(window.location.href.indexOf("test") > -1){
+  test(arduino.parser);
+}
+
 let k        = 10;
 let examples = [];
 let categories = [];
@@ -21,25 +24,32 @@ let countPerCategory = [];
 let guess = null;
 
 let size     = 20;
-let minx     = 180;
+let minx     = 320;
 let maxx     = minx+(9*size);
-let miny     = 50;
+let miny     = 100;
 let dot_x    = minx-size;
 let dot_y    = miny;
 let category = 0;
+let banner   = "Connect to Arduino";
 
 function reset() {
+  examples = [];
+  categories = [];
+  countPerCategory = [];
+  guess = null;
+  dot_x    = minx-size;
+  dot_y    = miny;
+  banner = arduino.message;
 }
 
 function addCategory(a) {
 }
 
 function guessObject(red,green,blue) {
-  guess = KNearestNeighbor([red,green,blue])
+  guess = KNearestNeighbor([red,green,blue]);
 }
 
 function addExample(exampleCategory,red,green,blue){
-
   // Calculate position
   dot_x += size; // new dot
   if (dot_x > maxx) {dot_x = minx; dot_y += size;} // new row
@@ -58,7 +68,7 @@ function addExample(exampleCategory,red,green,blue){
 }
 
 function setup() {
-  var canvas = createCanvas(500, 500);
+  var canvas = createCanvas(800, 500);
   canvas.parent('p5-sketch');
   strokeWeight(2);
   textSize(24);
@@ -72,6 +82,13 @@ function draw() {
 
   examples.forEach(drawDot);
 
+  // Draw banner
+  if (arduino.message.indexOf(",")==-1) {banner = arduino.message;}
+  noStroke();
+  fill('#fff')
+  textSize(48);
+  text(banner, 50,50);
+
   function drawDot(example){
     // Normalize color for illustration
     var r = example.inputs[0];
@@ -79,17 +96,18 @@ function draw() {
     var b = example.inputs[2];
     var f = 255/Math.max(r,g,b)
 
-    if (example.nearest) {stroke("white");} else {noStroke();}
+    if (example.nearest) {stroke("white");} else {stroke(color(r*f,g*f,b*f));}
     fill(color(r*f,g*f,b*f));
-    ellipse(example.x,example.y,size-1,size-1);
+    ellipse(example.x,example.y,size-2,size-2);
   }
 
   function categoryLabel(cat){
+    noStroke();
     for (let c = 0; c<categories.length; c++){
       textSize(80);
       if (guess == categories[c].name) {
         fill('#bbb')
-        rect(minx-size,categories[c].ypos-size*2,maxx,size*5)
+        rect(minx-size,categories[c].ypos-size*2,size*17,size*5)
         fill('#fff');
       } else {
         fill('#bbb');
