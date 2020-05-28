@@ -3,7 +3,7 @@ Companion web visualization for the Arduino_KNN Color_Classifier.ino sketch
 
 The p5.js sketch is designed to connect to Arduino Nano BLE sense and visualize the function of the machine learning algorithm running on the arduino board.
 
-  The Arduinio sketch classifies objects using a color sensor.
+  The Arduinio sketch learns from examples then classifies objects using a color sensor.
 
 
 ## Usage 
