@@ -12,7 +12,11 @@ class ArduinoEvents {
     this.serial.setHandler(this.parser);
     this.message = "";
     this.dialog = document.getElementById('dialog');
-    this.dialog.show();
+
+    if(window.location.href.indexOf("test") == -1){
+        this.dialog.show();
+    }
+
   }
 
   parser(input){
