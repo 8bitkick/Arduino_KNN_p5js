@@ -69,4 +69,4 @@ Show me an orange       (no function called yet, but "an orange" is sticky as th
 
 
 ## Security
-Web Serial requires the user to initiate a serial connection with the device via a dialog box in the browser. Once you do this those serial messages are able to control your javascript application by triggering handler functions and possibly more. Therefore it is recommended to only connect to devices you control. Furthermore this library is intended for demonstrations and proofs of concept.  
+Web Serial requires the user to initiate a serial connection with the device via a dialog box in the browser. Once you do this those serial messages are able to control your javascript application by triggering handler functions and possibly more. Therefore it is recommended to only connect to devices you control. This library is intended for demonstrations, prototyping and proofs of concept.  
