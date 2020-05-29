@@ -17,7 +17,7 @@ The p5.js sketch is designed to connect to Arduino Nano BLE sense and visualize 
 
 ![Image description](https://raw.githubusercontent.com/8bitkick/Arduino_KNN_p5js/master/images/screenshot.gif?token=AGMPUD4PULDGT2MCLNOHET263FFAA)
 
-## Arduino Events: arduino serial triggers p5.js functions
+## Arduino & p5.js methodology: arduino serial triggers p5.js functions
 
 This is the intial usage of arduino-events.js library.
 
