@@ -5,7 +5,7 @@ Companion to Color_Classifier.ino
 
 */
 
-// Runs JS function on receiving the following Arduno input
+// Runs JS function on receiving the following Arduino input
 let arduino   = new ArduinoEvents([
   {message:"Arduino k-NN color classifier", handler: reset},
   {message:"Enter an object name:",         handler: addCategory},
@@ -13,6 +13,7 @@ let arduino   = new ArduinoEvents([
   {message:"Let me guess your object",      handler: guessObject}
 ]);
 
+// Run simulated Arduino input if there's a index.html?test parameter
 if(window.location.href.indexOf("test") > -1){
   test(arduino.parser);
 }
