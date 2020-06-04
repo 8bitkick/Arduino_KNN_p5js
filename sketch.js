@@ -5,29 +5,30 @@ Companion to Color_Classifier.ino
 
 */
 
-// Runs JS function on receiving the following Arduino input
+// Runs JS function on receiving the following Arduno input
 let arduino   = new ArduinoEvents([
   {message:"Arduino k-NN color classifier", handler: reset},
   {message:"Enter an object name:",         handler: addCategory},
   {message:"Show me an example ",           handler: addExample},
-  {message:"Let me guess your object",      handler: guessObject}
+  {message:"Let me guess your object",      handler: guessObject},
+  {message:"I think your object is ",       handler: verifyGuess},
 ]);
 
-// Run simulated Arduino input if there's a index.html?test parameter
 if(window.location.href.indexOf("test") > -1){
   test(arduino.parser);
 }
 
-let k        = 10;
+let k        = 5;
 let examples = [];
 let categories = [];
 let countPerCategory = [];
 let guess = null;
+let sensorReading = [];
 
 let size     = 20;
-let minx     = 320;
+let minx     = 4+size*3;
 let maxx     = minx+(9*size);
-let miny     = 100;
+let miny     = 130+size;
 let dot_x    = minx-size;
 let dot_y    = miny;
 let category = 0;
@@ -47,10 +48,20 @@ function addCategory(a) {
 }
 
 function guessObject(red,green,blue) {
-  guess = KNearestNeighbor([red,green,blue]);
+  sensorReading = [red,green,blue];
+  guess = KNearestNeighbor(sensorReading);
+}
+
+function verifyGuess(arduinoGuess) {
+  if (guess != arduinoGuess) {
+    console.log("Error: Arduino disagrees with JS sketch  ",arduinoGuess);
+    console.log(countPerCategory);
+  }
 }
 
 function addExample(exampleCategory,red,green,blue){
+  sensorReading = [red,green,blue];
+
   // Calculate position
   dot_x += size; // new dot
   if (dot_x > maxx) {dot_x = minx; dot_y += size;} // new row
@@ -77,7 +88,25 @@ function setup() {
 }
 
 function draw() {
-  background(0x88);
+  background(0x00);
+
+  if (sensorReading.length>0){
+  textSize(16);
+  text("Color sensor input", minx-8, miny-size*2);
+  drawDot({
+    inputs:sensorReading,
+    x:  minx,
+    y: miny-size,
+    nearest:false
+  })
+  push();
+  textSize(12);
+  fill('#bbb');
+  noStroke();
+  text("r="+sensorReading[0]+" g="+sensorReading[1]+" b="+sensorReading[2], minx+size, miny-size/2);
+  pop();
+
+}
 
   categories.forEach(categoryLabel)
 
@@ -107,11 +136,11 @@ function draw() {
     for (let c = 0; c<categories.length; c++){
       textSize(80);
       if (guess == categories[c].name) {
-        fill('#bbb')
+        fill('#444')
         rect(minx-size,categories[c].ypos-size*2,size*17,size*5)
         fill('#fff');
       } else {
-        fill('#bbb');
+        fill('#444');
       }
 
       text(countPerCategory[c], maxx+size*2, categories[c].ypos+48);
