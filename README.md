@@ -21,7 +21,7 @@ You can load the p5js sketch with test input by using the ?test URL parameter
 
  `index.html?test`
 
-![Image description](https://raw.githubusercontent.com/8bitkick/Arduino_KNN_p5js/master/images/screenshot.gif?token=AGMPUD4PULDGT2MCLNOHET263FFAA)
+![Image description](https://github.com/8bitkick/Arduino_KNN_p5js/raw/master/images/screenshot.gif)
 
 ## Arduino & p5.js methodology: arduino serial triggers p5.js functions
 
