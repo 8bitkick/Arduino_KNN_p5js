@@ -1,12 +1,14 @@
 # Arduino_KNN_p5js
-Companion web visualization for the Arduino_KNN Color_Classifier.ino sketch
+Companion web visualization for the Arduino_KNN [ColorClassifier.ino](https://github.com/arduino-libraries/Arduino_KNN/tree/master/examples/ColorClassifier) sketch
 
-The p5.js sketch is designed to connect to Arduino Nano BLE sense and visualize the function of the machine learning algorithm running on the arduino board.
+The p5.js sketch is designed to connect to Arduino Nano BLE sense and visualize the function of the machine learning algorithm running on the arduino board. I made this to create diagrams and videos to explain the function of KNN.
 
-  The Arduinio sketch learns from examples then classifies objects using a color sensor.
+  The Arduinio sketch learns from examples then classifies objects using a color sensor. [Full write up here](https://blog.arduino.cc/2020/06/18/simple-machine-learning-with-arduino-knn/). 
 
 
 ## Usage 
+
+  Program your board with the [ColorClassifier sketch](https://blog.arduino.cc/2020/06/18/simple-machine-learning-with-arduino-knn/). 
 
   Load index.html. The sketch currently relies on Web Serial so is Chrome only at this time.
 
@@ -23,11 +25,9 @@ You can load the p5js sketch with test input by using the ?test URL parameter
 
 ![Image description](https://github.com/8bitkick/Arduino_KNN_p5js/raw/master/images/screenshot.gif)
 
-## Arduino & p5.js methodology: arduino serial triggers p5.js functions
+## Arduino serial triggers p5.js functions
 
-This is the intial usage of arduino-events.js library.
-
-This is a simple RPC library that enables Arduino sketch serial input to trigger a javascript function call, allowing easy creation of javascript or p5.js web apps or visualizations for Arduino sketches while allowing the Arduino sketch output to remain human readable and usable with or without the web companion.
+This example includes is a simple RPC library that enables Arduino sketch serial input to trigger a javascript function call, allowing easy creation of javascript or p5.js web apps or visualizations for Arduino sketches while allowing the Arduino sketch output to remain human readable and usable with or without the web companion.
 
 ### Set up event handlers 
 It is trivial to instance the library and associate serial messages with javascript functions to call.
