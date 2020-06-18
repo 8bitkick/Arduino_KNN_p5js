@@ -8,7 +8,7 @@ The p5.js sketch is designed to connect to Arduino Nano BLE sense and visualize 
 
 ## Usage 
 
-  Load index.html. The sketch currently relies on Web USB so is Chrome only at this time.
+  Load index.html. The sketch currently relies on Web Serial so is Chrome only at this time.
 
   Teach the Arduino by putting an example of each object close to the color sensor.
   
