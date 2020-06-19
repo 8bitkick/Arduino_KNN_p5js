@@ -25,7 +25,8 @@ You can load the p5js sketch with test input by using the ?test URL parameter
 
 ![Image description](https://github.com/8bitkick/Arduino_KNN_p5js/raw/master/images/screenshot.gif)
 
-## Arduino serial triggers p5.js functions
+
+## Background: How Arduino serial triggers p5.js functions 
 
 This example includes is a simple RPC library that enables Arduino sketch serial input to trigger a javascript function call, allowing easy creation of javascript or p5.js web apps or visualizations for Arduino sketches while allowing the Arduino sketch output to remain human readable and usable with or without the web companion.
 
