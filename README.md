@@ -17,13 +17,15 @@ The p5.js sketch is designed to connect to [Arduino Nano BLE sense](https://stor
   After this the Arduino will guess the name of objects it is shown based on how similar
   the color is to the examples it has seen using the k-NN algorithm. 
   
+  ![Image description](https://github.com/8bitkick/Arduino_KNN_p5js/raw/master/images/screenshot.gif)
+
+
+  
 ## Test without Arduino Board
 
 You can load the p5js sketch with test input by using the ?test URL parameter
 
  `index.html?test`
-
-![Image description](https://github.com/8bitkick/Arduino_KNN_p5js/raw/master/images/screenshot.gif)
 
 
 ## Background: How Arduino serial triggers p5.js functions 
